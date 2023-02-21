@@ -20,6 +20,12 @@ jobs:
           cache: "pnpm"
 
       - run: pnpm install --frozen-lockfile
+
+      - run: pnpm run lint
+      - run: pnpm run tsc
+      - run: pnpm run build
+      - run: pnpm run test
+
       - name: Create Release Pull Request or Publish
         id: changesets
         uses: changesets/action@v1

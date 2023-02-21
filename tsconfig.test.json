@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "types": ["@testing-library/jest-dom", "vitest/globals"]
+  },
+  "include": ["src/**/*.test.ts", "src/**/*.test.tsx"]
+}

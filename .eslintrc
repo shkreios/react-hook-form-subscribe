@@ -20,6 +20,7 @@
     "node": true,
     "es6": true
   },
+  "ignorePatterns": ["node_modules/*", "dist/*", "vitest.config.ts"],
   "rules": {
     "@typescript-eslint/ban-ts-comment": "warn",
     "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
@@ -37,7 +38,7 @@
     "import/no-unresolved": "off",
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/no-empty-function": "off",
-
+    "react/react-in-jsx-scope": "off",
     "import/no-named-as-default-member": "off"
   },
   "settings": {

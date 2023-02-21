@@ -1,6 +1,4 @@
-export type StartsWith<T, b extends string> = T extends `${b}${infer f}`
-  ? T
-  : never;
+export type StartsWith<T, b extends string> = T extends `${b}${infer f}` ? T : never;
 
 export const startsWith = <T extends string, b extends string>(
   str: T,

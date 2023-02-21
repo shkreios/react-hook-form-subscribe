@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable react-hooks/rules-of-hooks */
-import { StartsWith, startsWith } from "./utils/startsWith";
-import { useCallback, useEffect, useMemo } from "react";
+import { StartsWith, startsWith } from './utils/startsWith';
+import { useCallback, useEffect, useMemo } from 'react';
 import type {
   Control,
   EventType,
@@ -9,12 +9,10 @@ import type {
   FieldPathValue,
   FieldPathValues,
   FieldValues,
-} from "react-hook-form";
-import useEvent from "react-use-event-hook";
+} from 'react-hook-form';
+import useEvent from 'react-use-event-hook';
 
-export type UseFormSubscribeHook<
-  TFieldValues extends FieldValues = FieldValues
-> = {
+export type UseFormSubscribeHook<TFieldValues extends FieldValues = FieldValues> = {
   <
     TFieldNames extends readonly FieldPath<TFieldValues>[],
     TCallback extends (
@@ -46,9 +44,7 @@ export type UseFormSubscribeHook<
   ): void;
 };
 
-export const useCreateFormSubscribe = <
-  TFieldValues extends FieldValues = FieldValues
->(
+export const useCreateFormSubscribe = <TFieldValues extends FieldValues = FieldValues>(
   control: Control<TFieldValues>
 ) => {
   const useFormSubscribe: UseFormSubscribeHook<TFieldValues> = useCallback(
@@ -92,6 +88,7 @@ export const useCreateFormSubscribe = <
             }
           },
         }).unsubscribe;
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [control, fn, ...(name instanceof Array ? name : [name]), shouldSend]);
     },
