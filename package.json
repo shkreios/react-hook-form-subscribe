@@ -7,7 +7,8 @@
   "types": "dist/index.d.ts",
   "description": "Imperative subscribe hook for RHF fields",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "repository": {
     "type": "git",
