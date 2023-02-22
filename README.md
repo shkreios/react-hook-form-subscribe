@@ -1,5 +1,3 @@
-# react-hook-form-subscribe
-
 Introducing react-hook-form-subscribe! 🔥</br>
 Subscribe to React Hook Form field changes without re-renders 🔄 and enjoy an easy-to-use, readable API 🙌
 
@@ -31,6 +29,11 @@ const App: FC = () => {
   );
 };
 ```
+
+## Examples
+
+- Open Basic example in [CodeSandbox](https://codesandbox.io/s/github/shkreios/react-hook-form-subscribe/tree/main/examples/basic?file=/src/App.tsx) or [StackBlitz](https://stackblitz.com/github/shkreios/react-hook-form-subscribe/tree/main/examples/basic?file=src%2FApp.tsx)
+- Open RHF-Mui example in [CodeSandbox](https://codesandbox.io/s/github/shkreios/react-hook-form-subscribe/tree/main/examples/rhf-mui?file=/src/App.tsx) or [StackBlitz](https://stackblitz.com/github/shkreios/react-hook-form-subscribe/tree/main/examples/rhf-mui?file=src%2FApp.tsx)
 
 ## Installation
 
