@@ -20,7 +20,7 @@
     "node": true,
     "es6": true
   },
-  "ignorePatterns": ["node_modules/*", "dist/*", "vitest.config.ts"],
+  "ignorePatterns": ["node_modules/*", "dist/*", "vitest.config.ts", "tsup.config.ts"],
   "rules": {
     "@typescript-eslint/ban-ts-comment": "warn",
     "prettier/prettier": ["error", {}, { "usePrettierrc": true }],

@@ -3,7 +3,7 @@
   "license": "MIT",
   "version": "0.1.0",
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "description": "Imperative subscribe hook for RHF fields",
   "files": [
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/shkreios/react-hook-form-subscribe#readme",
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "build": "tsup",
     "tsc": "tsc",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
