@@ -1,5 +1,11 @@
 # react-hook-form-subscribe
 
+## 0.1.2
+
+### Patch Changes
+
+- ebdb5f9: Updated dependencies
+
 ## 0.1.1
 
 ### Patch Changes
