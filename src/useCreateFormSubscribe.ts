@@ -80,7 +80,13 @@ export const useCreateFormSubscribe = <TFieldValues extends FieldValues = FieldV
       );
 
       useEffect(() => {
-        return control._subjects.watch.subscribe({
+        // Watch has been renamed to values in https://github.com/react-hook-form/react-hook-form/commit/a8fb1a1ca7e9ab98545aaf1040a36f9c043cc69c
+        // To support both versions, we need to use the old name for older versions
+        const subject =
+          // @ts-expect-error
+          control._subjects.values ?? (control._subjects.watch as typeof control._subjects.values);
+
+        return subject.subscribe({
           next: (payload) => {
             if (payload.name && shouldSend(payload.name)) {
               // @ts-expect-error

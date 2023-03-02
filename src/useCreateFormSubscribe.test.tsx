@@ -28,7 +28,13 @@ describe('useCreateFormSubscribe hook', () => {
     await userEvent.type(screen.getByPlaceholderText('Firstname'), 'John');
 
     expect(callback).toHaveBeenCalledTimes(4);
-    expect(callback).toHaveBeenCalledWith('John', { name: 'firstname', type: 'change' });
+    expect(callback).toHaveBeenLastCalledWith('John', {
+      name: 'firstname',
+      type: 'change',
+      values: {
+        firstname: 'John',
+      },
+    });
   });
 
   it('should call the callback when any of the form fields specified in the array change', async () => {
@@ -55,7 +61,15 @@ describe('useCreateFormSubscribe hook', () => {
     await userEvent.type(screen.getByPlaceholderText('Firstname'), 'John');
 
     expect(callback).toHaveBeenCalledTimes(4);
-    expect(callback).toHaveBeenCalledWith(['John', ''], { name: 'firstname', type: 'change' });
+    expect(callback).toHaveBeenLastCalledWith(['John', ''], {
+      name: 'firstname',
+      type: 'change',
+
+      values: {
+        firstname: 'John',
+        lastname: '',
+      },
+    });
 
     await userEvent.type(screen.getByPlaceholderText('Lastname'), 'Doe');
 
@@ -63,6 +77,10 @@ describe('useCreateFormSubscribe hook', () => {
     expect(callback).toHaveBeenLastCalledWith(['John', 'Doe'], {
       name: 'lastname',
       type: 'change',
+      values: {
+        firstname: 'John',
+        lastname: 'Doe',
+      },
     });
   });
   it('should not call the callback when the component rerenders', () => {
@@ -109,15 +127,15 @@ describe('useCreateFormSubscribe hook', () => {
       </div>
     );
 
-    expect(control._subjects.watch.observers.length).toBe(0);
+    expect(control._subjects.values.observers.length).toBe(0);
 
     renderHook(() => useFormSubscribe('firstName', callback));
 
-    expect(control._subjects.watch.observers.length).toBe(1);
+    expect(control._subjects.values.observers.length).toBe(1);
 
     act(() => unmount());
 
-    waitFor(() => expect(control._subjects.watch.observers.length).toBe(0));
+    waitFor(() => expect(control._subjects.values.observers.length).toBe(0));
   });
 
   it('should only call the callback for the specified field when the form field value changes', () => {
@@ -156,7 +174,14 @@ describe('useCreateFormSubscribe hook', () => {
     });
 
     expect(callback).toHaveBeenCalledTimes(1);
-    expect(callback).toHaveBeenCalledWith('John', { name: 'firstName', type: 'change' });
+    expect(callback).toHaveBeenLastCalledWith('John', {
+      name: 'firstName',
+      type: 'change',
+      values: {
+        firstName: 'John',
+        lastName: 'Doe',
+      },
+    });
 
     act(() => {
       fireEvent.input(screen.getByPlaceholderText('Last Name'), {
@@ -195,6 +220,13 @@ describe('useCreateFormSubscribe hook', () => {
     });
 
     expect(callback).toHaveBeenCalledTimes(1);
-    expect(callback).toHaveBeenCalledWith(['John', ''], { name: 'firstName', type: 'change' });
+    expect(callback).toHaveBeenLastCalledWith(['John', ''], {
+      name: 'firstName',
+      type: 'change',
+      values: {
+        firstName: 'John',
+        lastName: '',
+      },
+    });
   });
 });
