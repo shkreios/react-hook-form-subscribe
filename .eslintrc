@@ -39,7 +39,8 @@
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/no-empty-function": "off",
     "react/react-in-jsx-scope": "off",
-    "import/no-named-as-default-member": "off"
+    "import/no-named-as-default-member": "off",
+    "import/no-named-as-default": "off"
   },
   "settings": {
     "react": {
