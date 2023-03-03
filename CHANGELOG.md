@@ -1,5 +1,11 @@
 # react-hook-form-subscribe
 
+## 0.2.0
+
+### Minor Changes
+
+- 9157380: Added experimental api useCreateTrackedFormSubscribe
+
 ## 0.1.3
 
 ### Patch Changes
